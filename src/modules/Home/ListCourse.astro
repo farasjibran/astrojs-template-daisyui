@@ -1,0 +1,17 @@
+---
+import CourseCard from "../../components/CourseCard/CourseCard.astro";
+import { getCourse } from "../../services/api/course/course.service.ts"
+import { type Course } from "../../types/course.ts"
+
+const dataListCourse = await getCourse();
+---
+
+<div class="container mx-auto py-5">
+  <h4 class="font-bold">Daftar Pelatihan</h4>
+
+  <div class="grid grid-cols-4 gap-10 py-5">
+    {dataListCourse.map(data => 
+      <CourseCard detailCourse={data} />
+    )}
+  </div>
+</div>

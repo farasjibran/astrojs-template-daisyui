@@ -1,0 +1,21 @@
+---
+import { type Course } from "../../types/course.ts"
+import { parse } from "node-html-parser"
+
+interface Props {
+  detailCourse: Course;
+}
+
+const { detailCourse } = Astro.props
+---
+
+<div class="card card-compact w-86 bg-base-100 shadow-xl">
+  <figure><img src={detailCourse.path_thumbnail} alt="Shoes" class="w-full h-56 rounded-b-lg" /></figure>
+  <div class="card-body">
+    <h2 class="card-title">{detailCourse.judul_pelatihan}</h2>
+    {parse(detailCourse.informasi_umum ?? '')}
+    <div class="card-actions justify-end mt-5">
+      <button class="btn btn-primary">Detail Course</button>
+    </div>
+  </div>
+</div>

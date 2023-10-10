@@ -1,0 +1,25 @@
+---
+import Navbar from "../../common/navbar/Navbar.astro";
+import "../../global.css";
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'Starter Kit Astro' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+</head>
+<body>
+    <Navbar />
+    <slot>
+      <!-- all components goes here -->
+    </slot>
+</body>
+</html>
